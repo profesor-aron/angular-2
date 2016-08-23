@@ -6,6 +6,7 @@ import { appRouterProviders } from './app/app.routes';
 import {HTTP_PROVIDERS} from '@angular/http';
 
 import { DataService } from './app/shared/services/data/data.service';
+import { ToolService } from './app/shared/services/tool/tool.service';
 
 if (environment.production) {
   enableProdMode();
@@ -14,6 +15,7 @@ if (environment.production) {
 bootstrap(AppComponent, [
   appRouterProviders,
   HTTP_PROVIDERS,
-  DataService
+  DataService,
+  ToolService
 ])
 .catch(err => console.error(err));

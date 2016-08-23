@@ -15,7 +15,16 @@ module.exports = function(defaults) {
       'es6-shim/es6-shim.js',
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
-      '@angular/**/*.+(js|js.map)'
+      '@angular/**/*.+(js|js.map)',
+
+      'angular2-fontawesome/*.+(js|js.map)',
+      'angular2-fontawesome/**/*.+(js|js.map)',
+      'angular2-fontawesome/**/**/*.+(js|js.map)',
+      'angular2-fontawesome/node_modules/font-awesome/css/*.*',
+      'angular2-fontawesome/node_modules/font-awesome/fonts/*.*',
+
+      'ng2-bootstrap/**/*',
+      'moment/moment.js'
     ]
   });
 };

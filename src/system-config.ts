@@ -9,10 +9,22 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'angular2-fontawesome': 'vendor/angular2-fontawesome',
+  'moment': 'vendor/moment/moment.js',
+  'ng2-bootstrap': 'vendor/ng2-bootstrap'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'angular2-fontawesome': {
+    defaultExtension: 'js'
+  },
+  'ng2-bootstrap': {
+    defaultExtension: 'js'
+  },
+  'moment':{
+    format: 'cjs'
+  }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

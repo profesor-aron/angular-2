@@ -14,19 +14,17 @@ import { DataService } from './shared/services/data/data.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'app works!';
+  public title;
 
   constructor(
     private dataService: DataService,
     private router:Router) {
 
-    //this.router.navigate(['/categories']);
+    this.title = 'Mis frases de vida';
 
   }
 
   ngOnInit() {
-
-    this.dataService.getData();
 
   }
 

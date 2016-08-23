@@ -1,39 +1,42 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/Rx';
+import { asObservable } from '../commun/asObservable';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class DataService implements OnInit {
+export class DataService {
 
-  private data;
+  private _data: BehaviorSubject<Object>;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
 
-  ngOnInit() {
+    this._data = new BehaviorSubject(Object);
 
-    this.getData();
+    this.loadInitialData();
+  }
+
+  loadInitialData() {
+
+    this.http.get('../../../../assets/data/data.json')
+        .map((res:Response) => res.json())
+        .subscribe(
+          data => {
+            this._data.next(data);
+            //this._data.complete();
+          },
+          err => console.error('Error in loadInitialData(): ' + err),
+          () => console.log('Done loadInitialData()')
+        );
 
   }
 
-  getData() {
-// use Observable pattern
-	if (this.data === undefined) {
+  get data() {
+    return asObservable(this._data);
+  }
 
-	  console.log('Data is undefined');
-
-      this.http.get('../../../../assets/data/data.json')
-        .map((res:Response) => res.json())
-        .subscribe(
-          data => { this.data = data },
-          err => console.error(err),
-          () => console.log('done')
-        );
-
-	} else {
-
-	  console.log('Data exists');
-
-	}
-
+  upp(data2) {
+    this._data.next(data2);
   }
 
 }

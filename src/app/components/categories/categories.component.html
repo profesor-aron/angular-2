@@ -1,3 +1,32 @@
 <p>
   categories works!
 </p>
+
+<div class="row" *ngFor="let row of model.rows">
+  <div class="col-sm-6 col-md-4" *ngFor="let col of row">
+
+    <div class="aehp-category" (click)="goToCitation(col.id)">
+
+      <div class="text-center">
+        <img src="assets/img/categories/{{ col.icon }}">
+        <img src="assets/img/thumbs/{{ col.nbCitationsLoved ? 'green-thumb.png' : 'white-thumb.png' }}" width="20px">
+      {{ col.nbCitationsLoved }}
+      </div>
+      <div class="aehp-category-name text-center">
+        {{ col.name }}
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<br/>
+
+<button class="button" (click)="goToSettingsCategories()">
+  <i fa class="fa fa-cog"></i>
+</button>
+
+<button class="button" (click)="goToSettingsLanguage()">
+  <i fa class="fa fa-globe"></i>
+</button>
