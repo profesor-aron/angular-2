@@ -2,6 +2,36 @@
   settings-categories works!
 </p>
 
+<div (click)="updateCategoriesBySelectAll()">
+
+  <img
+    src="assets/img/checkbox/{{ model.selectAllCategories ? 'checkbox-on.png' : 'checkbox-off.png' }}"
+    width="30px">
+<!--  
+  {{ 'SETTINGS_CATEGORIES_SUB_TITLE' | translate }}
+  -->
+  Select all categories
+
+</div>
+
+<div *ngFor="let category of model.categories">
+
+  <div (click)="updateCategoryByIsVisible(category)">
+
+    <img
+      src="{{ 'assets/img/checkbox/' + (category.is_visible ? 'checkbox-on.png' : 'checkbox-off.png') }}"
+      width="30px"/>
+
+    <img
+      src="{{ 'assets/img/categories/' + category.icon }}"
+      width="30px"/>
+
+    <span >{{ category.name }}</span>
+
+  </div>
+
+</div>
+
 <br/>
 
 <button class="button" (click)="goToCategories()">
